@@ -1,11 +1,11 @@
 package uk.amccabe.searchfight;
 
-import org.apache.log4j.Logger;
+import java.util.Arrays;
+import java.util.List;
 
-import uk.amccabe.searchfight.search.QueryEngine;
-import uk.amccabe.searchfight.search.bing.QueryBing;
-import uk.amccabe.searchfight.search.google.QueryGoogle;
-import uk.amccabe.searchfight.search.yahoo.QueryYahoo;
+import uk.amccabe.searchfight.compare.QueryComparator;
+import uk.amccabe.searchfight.engine.EngineLoader;
+import uk.amccabe.searchfight.engine.SearchEngine;
 
 /**
  * Main runnable class for the SearchFight application.
@@ -15,23 +15,16 @@ import uk.amccabe.searchfight.search.yahoo.QueryYahoo;
  */
 public class Main {
 
-  private static final Logger logger = Logger.getLogger(Main.class);
-
   public static void main(String[] args) {
-    QueryEngine google = new QueryGoogle();
-    QueryEngine bing = new QueryBing();
-    QueryEngine yahoo = new QueryYahoo();
-    
-    for (int i = 0; i < args.length; i++) {      
-      long googleResults = google.query(args[i]);
-      long bingResults = bing.query(args[i]);
-      long yahooResults = yahoo.query(args[i]);
+    EngineLoader engineLoader = new EngineLoader();
+    List<SearchEngine> allEngines = engineLoader.getSupportedEngines();
 
-      logger.debug("Got " + googleResults + " Google results.");
-      logger.debug("Got " + bingResults + " Bing results.");
-      logger.debug("Got " + yahooResults + " Yahoo results.");
+    List<String> allQueries = Arrays.asList(args);
+
+    if (!allQueries.isEmpty()) {
+      QueryComparator comparator = new QueryComparator();
+      comparator.executeAndCompare(allQueries, allEngines);
     }
-
   }
 
 }

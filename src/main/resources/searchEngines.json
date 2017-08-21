@@ -1,0 +1,19 @@
+[
+  {
+    "name" : "Google",
+    "searchUrl" : "http://www.google.com/search?q=",
+    "selector" : "div#resultStats"
+  },
+  {
+    "name" : "Bing",
+    "searchUrl" : "http://www.bing.com/search?q=",
+    "selector" : "span.sb_count"
+  },
+  {
+    "name" : "Yahoo",
+    "searchUrl" : "http://search.yahoo.com/search?q=",
+    "selector" : "div.compPagination span"
+  },{
+    "WHOOOAH" : "HOOOOOOL"
+  }
+]
