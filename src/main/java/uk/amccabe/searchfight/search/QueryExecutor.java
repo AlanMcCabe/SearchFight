@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import uk.amccabe.searchfight.engine.SearchEngine;
 
 /**
@@ -17,6 +19,8 @@ import uk.amccabe.searchfight.engine.SearchEngine;
  *
  */
 public class QueryExecutor {
+
+  private static final Logger logger = Logger.getLogger(QueryExecutor.class);
 
   private QuerySearchEngine queryEngine;
 
@@ -37,6 +41,7 @@ public class QueryExecutor {
     Map<SearchEngine, Long> allResults = new HashMap<>();
 
     for (SearchEngine engine : allEngines) {
+      logger.debug(String.format("Executing \"%s\" query on %s", queryString, engine.getName()));
       String result = queryEngine.executeQuery(queryString, engine);
       allResults.put(engine, parseResultString(result));
     }
@@ -72,6 +77,7 @@ public class QueryExecutor {
    * @return long value parsed from result
    */
   private long parseResultString(String result) {
+    logger.debug(String.format("Sanitizing: %s", result));
     String sanitizedText = result.replaceAll("[^\\d]", "");
 
     if (sanitizedText.length() > 0) {

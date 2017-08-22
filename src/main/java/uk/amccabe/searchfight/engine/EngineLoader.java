@@ -33,6 +33,7 @@ public class EngineLoader {
    * @return List of parsed SearchEngines, or an empty List if an exception occurs
    */
   public List<SearchEngine> getSupportedEngines(String fileName) {
+    logger.debug(String.format("Attempting to load json file: %s", fileName));
     if (fileName != null && !fileName.isEmpty()) {
       TypeReference<List<SearchEngine>> listType = new TypeReference<List<SearchEngine>>() {};
       InputStream is = TypeReference.class.getResourceAsStream(fileName);
