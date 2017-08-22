@@ -14,6 +14,15 @@ Terms comprised of multiple words can be searched by providing them in quotation
 
 	java -jar SearchFight.jar "search fight"
 
+Alternatively, if any changes have been made to the program or configuration it can be compiled by navigating
+to the root directory (containing pom.xml) and executing:
+
+	mvn clean package
+
+This assumes that you have Maven installed. The updated jar can then be ran by executing:
+
+	java -jar target/SearchFight-1.0-jar-with-dependencies.jar ${search terms}
+
 ## Extending
 
 Additional search engines can be queried by adding them to the searchEngines.json file. The following information
