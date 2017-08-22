@@ -1,0 +1,12 @@
+[
+  {
+    "name" : "testName1",
+    "searchUrl" : "testUrl1",
+    "selector" : "testSelector1"
+  },
+  {
+    "name" : "testName2",
+    "searchUrl" : "testUrl2",
+    "selector" : "testSelector2"
+  }
+]

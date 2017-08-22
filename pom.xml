@@ -23,30 +23,17 @@
       <version>3.6</version>
     </dependency>
 
-    <!-- Search engines -->
-    <!--dependency>
-      <groupId>com.google.appengine</groupId>
-      <artifactId>appengine-api-1.0-sdk</artifactId>
-      <version>1.9.54</version>
-    </dependency-->
-
     <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
         <version>2.9.0</version>
     </dependency>
-    <!--dependency>
-        <groupId>com.googlecode.json-simple</groupId>
-        <artifactId>json-simple</artifactId>
-        <version>1.1.1</version>
-    </dependency-->
 
     <dependency>
         <groupId>org.jsoup</groupId>
         <artifactId>jsoup</artifactId>
         <version>1.8.3</version>
     </dependency>
-
 
     <!-- Testing -->
     <dependency>
@@ -62,22 +49,24 @@
       <version>1.10.19</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+        <groupId>org.powermock</groupId>
+        <artifactId>powermock-module-junit4</artifactId>
+        <version>1.7.1</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-api-mockito</artifactId>
+      <version>1.7.1</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
-      <!--plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.0.2</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <mainClass>uk.amccabe.searchfight.Main</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin-->
 
       <plugin>
         <groupId>org.apache.maven.plugin</groupId>

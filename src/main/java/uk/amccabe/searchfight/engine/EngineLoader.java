@@ -20,25 +20,34 @@ public class EngineLoader {
 
   private static final Logger logger = Logger.getLogger(EngineLoader.class);
 
+  private ObjectMapper mapper;
+
+  public EngineLoader() {
+    mapper = new ObjectMapper();
+  }
+
   /**
-   * Load the configuration file and parse it into a list of SearchEngine objects using
-   * Jackson. Exceptions should be caught and logged, and an empty list returned.
+   * Load the configuration file and parse it into a list of SearchEngine objects using Jackson.
+   * Exceptions should be caught and logged, and an empty list returned.
    * 
    * @return List of parsed SearchEngines, or an empty List if an exception occurs
    */
-  public List<SearchEngine> getSupportedEngines() {
-    ObjectMapper mapper = new ObjectMapper();
-    TypeReference<List<SearchEngine>> listType = new TypeReference<List<SearchEngine>>() {};
-    InputStream is = TypeReference.class.getResourceAsStream("/searchEngines.json");
+  public List<SearchEngine> getSupportedEngines(String fileName) {
+    if (fileName != null && !fileName.isEmpty()) {
+      TypeReference<List<SearchEngine>> listType = new TypeReference<List<SearchEngine>>() {};
+      InputStream is = TypeReference.class.getResourceAsStream(fileName);
 
-    try {
-      return mapper.readValue(is, listType);
-    } catch (IOException e) {
-      logger.error("Exception occured while attempting to load search engine properties.");
-      logger.error(e);
-
-      return Collections.emptyList();
+      try {
+        return mapper.readValue(is, listType);
+      } catch (IOException e) {
+        logger.error("Exception occured while attempting to load search engine properties.");
+        logger.error(e);
+      }
+    } else {
+      logger.error("Missing configuration filename.");
     }
+
+    return Collections.emptyList();
   }
 
 }

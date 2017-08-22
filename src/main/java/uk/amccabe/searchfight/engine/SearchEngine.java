@@ -1,8 +1,8 @@
 package uk.amccabe.searchfight.engine;
 
 /**
- * POJO representing a search engine containing all fields necessary to identify it,
- * execute search queries and extract the results.
+ * POJO representing a search engine containing all fields necessary to identify it, execute search
+ * queries and extract the results.
  * 
  * @author alan.mccabe92@gmail.com
  *
