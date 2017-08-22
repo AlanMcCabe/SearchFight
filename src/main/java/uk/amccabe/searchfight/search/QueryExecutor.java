@@ -7,7 +7,8 @@ import java.util.Map;
 import uk.amccabe.searchfight.engine.SearchEngine;
 
 /**
- * Class to execute supplied queries on search engines as provided by the configuration.
+ * Class to execute supplied queries on search engines as provided by the configuration. Execution
+ * is delegated to the @QuerySearchEngine class.
  * 
  * As the result is returned as a String in the format e.g "About 1,000 results" it is necessary to
  * strip out all non-numeric characters before returning the results.
