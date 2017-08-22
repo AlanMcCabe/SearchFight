@@ -25,7 +25,7 @@ public class QueryExecutor {
   private QuerySearchEngine queryEngine;
 
   public QueryExecutor() {
-    queryEngine = new QuerySearchEngine();
+    queryEngine = new QuerySearchEngineImpl();
   }
 
   /**

@@ -30,7 +30,7 @@ import uk.amccabe.searchfight.engine.SearchEngine;
  */
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Jsoup.class)
-public class QuerySearchEngineTest {
+public class QuerySearchEngineImplTest {
 
   @Mock
   private Connection mockConnect;
@@ -44,7 +44,7 @@ public class QuerySearchEngineTest {
   @Mock
   private Elements mockElements;
 
-  private QuerySearchEngine queryEngine;
+  private QuerySearchEngineImpl queryEngine;
 
   private SearchEngine searchEngine;
 
@@ -54,7 +54,7 @@ public class QuerySearchEngineTest {
   @Before
   public void setUp() throws IOException {
     initMocks(this);
-    queryEngine = new QuerySearchEngine();
+    queryEngine = new QuerySearchEngineImpl();
     searchEngine = new SearchEngine();
     searchEngine.setName("name");
     searchEngine.setSearchUrl("url");
