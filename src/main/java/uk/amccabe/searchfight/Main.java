@@ -8,7 +8,8 @@ import uk.amccabe.searchfight.engine.EngineLoader;
 import uk.amccabe.searchfight.engine.SearchEngine;
 
 /**
- * Main runnable class for the SearchFight application.
+ * Main runnable class for the SearchFight application. Simply delegates loading of
+ * SearchEngine information and execution of queries to other classes.
  * 
  * @author alan.mccabe92@gmail.com
  *
@@ -21,7 +22,7 @@ public class Main {
 
     List<String> allQueries = Arrays.asList(args);
 
-    if (!allQueries.isEmpty()) {
+    if (!allQueries.isEmpty() && !allEngines.isEmpty()) {
       QueryComparator comparator = new QueryComparator();
       comparator.executeAndCompare(allQueries, allEngines);
     }

@@ -10,10 +10,22 @@ import org.apache.log4j.Logger;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * Load a List of specified SearchEngines from the @searchEngines.json configuration file.
+ * 
+ * @author alan.mccabe92@gmail.com
+ *
+ */
 public class EngineLoader {
 
   private static final Logger logger = Logger.getLogger(EngineLoader.class);
 
+  /**
+   * Load the configuration file and parse it into a list of SearchEngine objects using
+   * Jackson. Exceptions should be caught and logged, and an empty list returned.
+   * 
+   * @return List of parsed SearchEngines, or an empty List if an exception occurs
+   */
   public List<SearchEngine> getSupportedEngines() {
     ObjectMapper mapper = new ObjectMapper();
     TypeReference<List<SearchEngine>> listType = new TypeReference<List<SearchEngine>>() {};

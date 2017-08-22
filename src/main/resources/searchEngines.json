@@ -13,7 +13,5 @@
     "name" : "Yahoo",
     "searchUrl" : "http://search.yahoo.com/search?q=",
     "selector" : "div.compPagination span"
-  },{
-    "WHOOOAH" : "HOOOOOOL"
   }
 ]
